@@ -1,0 +1,24 @@
+.redondo{
+    border-radius: 35px; 
+}
+
+button{
+    width: 100px;
+}
+
+#divPersona{
+    margin: 0 auto;
+    border-style: solid;
+    border-radius: 5%;
+    border-color:#F4F6F6;
+    background-color:#F4F6F6;
+}
+
+#divListaPersonas{
+    margin: 0 auto; 
+    min-height: 200px;  
+}
+
+#filaEncabezadoTabla{
+    background-color:#200B60;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="../static/css/app.css">
+    <script src="../static/js/app.js"></script>
+    
+    <title>Aplicación Gestión Personas PYTHON</title>
+
+</head>
+<body onload="iniciar()">
+    <div class="container">
+        <br>
+        <div id="divPersona" class="w-50">
+            <h3 class="text-center fw-bold" style="font-size:3vh">GESTIÓN PERSONAS</h3>
+            <!--  FORMULARIO   -->
+            <form method="post" class="was-validated" id="frmPersonas">
+                <div class="form-floating mb-3 mt-3">
+                    <input type="text" name="txtIdentificacion" id="txtIdentificacion"
+                    class="form-control redondo" value="">
+                    <label for="txtIdentificacion">Identificación</label>
+                </div>
+                <div class="form-floating mb-3 mt-3">
+                    <input type="text" name="txtNombre" id="txtNombre"
+                    class="form-control redondo" value="">
+                    <label for="txtNombre">Nombre</label>
+                </div>
+                <div class="form-floating mb-3 mt-3">
+                    <input type="email" name="txtCorreo" id="txtCorreo"
+                    class="form-control redondo" value="">
+                    <label for="txtCorreo">Correo</label>
+                </div>
+                <div class="form-floating mb-3 mt-3">
+                    <input type="date" name="txtFechaNacimiento" id="txtFechaNacimiento"
+                    class="form-control redondo" value="">
+                    <label for="txtFechaNacimiento">Fecha Nacimiento</label>
+                </div>
+                <div class="form-group">
+                    <input type="button" name="btnAccion" id="btnAgregar" onclick="agregar()" value="AGREGAR"
+                    class="btn btn-success redondo mb-3">
+                    <input type="button"  onclick="consultarPorIdentificacion()" name="btnAccion" id="btnConsultar" value="CONSULTAR"
+                    class="btn btn-success redondo mb-3">  
+                    <input type="button" onclick="actualizar()" name="btnAccion" id="btnActualizar" value="ACTUALIZAR"
+                    class="btn btn-success redondo mb-3">
+                    <input type="button" onclick="modalEliminar()" name="btnAccion" id="btnEliminar" value="ELIMINAR"
+                    class="btn btn-danger redondo mb-3">
+                </div>
+                <input type="hidden" name="txtIdAnterior" id="txtIdAnterior">
+            </form>
+        </div>
+        <br>
+        <div id="divListaPersonas" class="w-50 table-responsive">
+            <!--  TABLA PERSONAS -->
+            <br>
+            <table id="tblPersonas" class="table table-bordered">
+                <thead class="text-white text-center" >
+                    <tr id="filaEncabezadoTabla" style="font-size:2vh">
+                        <th>IDENTIFICACIÓN</th>
+                        <th>NOMBRE</th>
+                        <th>CORREO</th>
+                        <th>FECHA NACIMIENTO</th>
+                    </tr>
+                </thead>
+                <tbody id="datosPersonas">     
+                    {% for persona in listaPersonas %} 
+                        <tr>
+                            <td class="text-center">{{persona[0]}}</td>
+                            <td>{{persona[1]}}</td>
+                            <td class="text-center">{{persona[2]}}</td>
+                            <td>{{persona[3]}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table> 
+        </div>
+        <div class="text-center fw-bold" style="font-size:2vh">
+            <p>Elaborado por: César Marino Cuéllar Chacón
+    
+            </p>
+        </div>
+    </div>
+
+    
+    
+</body>
+</html>
